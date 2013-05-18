@@ -1,23 +1,29 @@
 {
+	 "manifest_version": 2,
+   "name": "Y Smart",
+   "permissions": [ "tabs", 
+   		"http://*/*", 
+   		"https://*/*",
+   		"storage" 
+   	],
+   "update_url": "https://github.com/Y-Smart",
+   "version": "1.0.0",
+   "background": {
+   		"scripts": ["background.js"]
+   },
+ 
    "content_scripts": [ {
       "css": [ "content.css" ],
       "js": [ "js/jquery.js", "content.js" ],
       "matches": [ "http://*/*", "https://*/*" ]
    } ],
-   "description": "\u5212\u8BCD\u641C\u4E66\u3002\u5728\u7F51\u9875\u4E0A\u9009\u4E2D\u7684\u8BCD\u8BED\u82E5\u88AB\u4E66\u540D\u53F7\u5305\u88F9\u6216\u9009\u8BCD\u4E4B\u540E\u4E3B\u52A8\u6309\u4E0Bd\u952E\uFF0C\u5C06\u4F1A\u663E\u793A\u8C46\u74E3\u5BF9\u5E94\u7684\u4E66\u7C4D\u4FE1\u606F\u3002\u4F8B\u5982\uFF1A\u9009\u4E2D\u300A\u5E73\u51E1\u7684\u4E16\u754C\u300B\r\n    \u6216\u8005\u9009\u4E2D \u201C\u5E73\u51E1\u7684\u4E16\u754C\u201D \u4E4B\u540E\u6309\u4E0B d\u952E\uFF0C\u9875\u9762\u4F1A\u4E0A\u663E\u793A\u8DEF\u9065\u8FD9\u90E8\u7ECF\u5178\u4F5C\u54C1\u7684\u8C46\u74E3\u8BC4\u5206\uFF0C\u7B80\u4ECB\u548C\u552E\u4EF7\u3002\u70B9\u51FB\u76F8\u5E94\u7684\u94FE\u63A5\uFF0C\u53EF\u4EE5\u53BB\u5F80\u5404\u4E2A\u8BE6\u60C5\u9875\u9762",
+   "description": "Y Smart, a light knowledge graph",
    "icons": {
-      "48": "bookinfo.png"
-   },
-   "manifest_version": 2,
-   "name": "\u5212\u8BCD\u641C\u4E66",
-   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "background": {
-		"scripts": ["background.js"]
+      "48": "Y.jpg"
    },
    "browser_action": {
-		"default_icon": "bookinfo.png",
-		"default_title": "Auto Search"
-   },
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.0.7"
+   		"default_title": "Auto Search: OFF",
+   		"default_icon": "Y2.jpg"
+   		
+   }
 }
