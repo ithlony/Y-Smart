@@ -1,0 +1,26 @@
+<script src='jquery.js'></script>
+<script language="javascript" type="text/javascript">
+	urlStart='http://query.yahooapis.com/v1/public/yql?q=select * from flickr.photos.search where text = \"';
+	urlEnd='\" and api_key=\"74a691a07a380f96cba0e0580664a204\" and sort=\"relevance\"&format=json&diagnostics=true';
+
+function getPicture()
+{
+	var picInfo={};
+	//washington, white, house
+	//london, big, ben
+	//
+	var word = "dubai"
+	var url = urlStart+word+urlEnd;
+	ajaxUrl = encodeURI(url);
+	$.get(ajaxUrl, function(json){
+			var farm = json.query.results.photo[0].farm;
+			var server = json.query.results.photo[0].server;
+			var id = json.query.results.photo[0].id;
+			var secret = json.query.results.photo[0].secret;
+			var url = 'http://farm'+farm+'.staticflickr.com/'+server+'/'+id+'_'+secret+'.jpg';
+			alert(url);
+			})
+}
+
+getPicture();
+</script>

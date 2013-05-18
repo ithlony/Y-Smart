@@ -1,0 +1,23 @@
+<script src='jquery.js'></script>
+<script language="javascript" type="text/javascript">
+	urlStart='http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places where text=\"';
+	urlEnd='\")&format=json&diagnostics=true&callback=';
+
+function getWeather()
+{
+	var word = "beijing";
+	var url = urlStart+word+urlEnd;
+	ajaxUrl = encodeURI(url);
+	$.get(ajaxUrl, function(json){
+			var high = json.query.results.channel[0].item.forecast[0].high;
+			var low = json.query.results.channel[0].item.forecast[0].low;
+			var text = json.query.results.channel[0].item.forecast[0].text;
+			var humidity = json.query.results.channel[0].atmosphere.humidity;
+			var pressure = json.query.results.channel[0].atmosphere.pressure;;
+			var line= high + low + text + humidity + pressure;
+			alert(line);
+			})
+}
+
+getWeather();
+</script>

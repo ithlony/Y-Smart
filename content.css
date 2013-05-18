@@ -1,0 +1,68 @@
+.box_l {
+  width: 350px;
+  position:absolute;
+  display: block;
+  z-index: 2147483646;
+  height: auto;
+  border: 1px solid rgb(207, 207, 207);
+}
+#box_id a{
+  text-decoration: none;
+}
+#box_id a:hover{
+  text-decoration: underline;;
+}
+#box_id .box_l1 {
+  border-bottom: #ccc solid 1px;
+  border-top: #fff solid 1px;
+  background-color: #f7f7f7;
+  padding: 9px 10px;
+  font-size: 14px;
+  line-height: normal;
+}
+#box_id .box_l1 span {
+  margin: 0;
+  padding-right: 10px;
+  font-size: 12px;
+  color: #666;
+}
+#box_id .box_l1 span.book_start {
+  display: inline;
+  float: left;
+  padding: 0 10px 0 75px;
+  line-height: 15px;
+  height: 15px;
+  background: url('http://shared.ydstatic.com/gouwuex/images/extension_2_8/bookStars.gif') 0 0 no-repeat;
+}
+#box_id .box_l2 {
+  list-style-type: none;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 15px 2px 15px;
+  color: #666;
+}
+.box_l2 a{
+  padding-right: 5px;
+}
+#box_id .box_l3 {
+  list-style-type: none;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 2px 15px 2px 15px;
+  background-color: #f7f7f7;
+  font-size: 12px;
+  color: #666;
+}
+.box_l3 a{
+  padding-right: 5px;
+  font-size: 12px;
+}
+#box_id .box_price {
+  list-style-type: none;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 15px 12px 15px;
+  color: #666;
+}

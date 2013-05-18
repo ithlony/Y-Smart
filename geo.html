@@ -1,0 +1,27 @@
+<script src='jquery.js'></script>
+<script language="javascript" type="text/javascript">
+	urlStart='http://query.yahooapis.com/v1/public/yql?q=select * from geo.placefinder where text = \"';
+	urlEnd='\"&format=json&diagnostics=true&callback=';
+
+function getGeoInfo()
+{
+	var geoInfo={};
+	var longitude;
+	var latitude;
+	var word = "beijing";
+	var url = urlStart+word+urlEnd;
+	ajaxUrl = encodeURI(url);
+	alert(ajaxUrl);
+	$.get(ajaxUrl, function(json){
+			var longitude = json.query.results.Result.longitude;
+			var latitude = json.query.results.Result.latitude;
+			var city = json.query.results.Result.city;
+			var province = json.query.results.Result.state;
+			var country = json.query.results.Result.country;
+			var line='City:'+city+'\nState:'+province+'\nCountry:'+country+'\nlatitude:'+latitude+'\nlongitude:'+longitude;
+			alert(line);
+			})
+}
+
+getGeoInfo();
+</script>
