@@ -64,7 +64,7 @@ function showAll() {
 
 function show2() {
 	var allhtml = [];
-	allhtml.push('<div id="box_id" style="left:', setBanX(),'px;top:', setBanY(),'px" class="box_l">');
+	allhtml.push('<div id="info_box" style="left:', setBanX(),'px;top:', setBanY(),'px" class="info_box">');
 	allhtml.push("<ol>");
 	allhtml.push('<li id = "translate">' + "", '</li>');
 	allhtml.push('<li id = "wiki">' + "</li>");
@@ -100,6 +100,7 @@ function getAll() {
 		wikiInfo.first_para = first_para;
 		wikiInfo.img = img;
 		$("#wiki").html(first_para);
+		$("#wiki").append("<hr>");
 	})
 	ajaxUrl = NS.url.translateAPI + info.text;
 	ajaxUrl = encodeURI(ajaxUrl);
@@ -111,6 +112,7 @@ function getAll() {
 		ex = ex["explains"];
 		transInfo.trans = ex;
 		$("#translate").text(ex);
+		$("#translate").append("<hr>");
 	})
 	ajaxUrl = NS.url.FlickrStart + info.text + NS.url.FlickrEnd;
 	ajaxUrl = encodeURI(ajaxUrl);
@@ -176,12 +178,16 @@ function selectStart(e) {
 function selectEnd(e) {
 	var text = window.getSelection().toString();
 	
-	if (text.length == 0 || text == info.text)
+	if (text == info.text)
 		return;
 	
-	if(info.dom) {
+	if (info.dom) {
 		info.dom.remove();
 		info.dom = info.text = null;
+	}
+	if(text.length == 0)
+	{
+		return;
 	}
 	
 	answerInfo = {};
@@ -209,8 +215,14 @@ function selectEnd(e) {
 }
 
 function keyUpD(e) {
-
-	if (e.keyCode == 68) {
+	if (e.keyCode == 27/*esc*/) {
+		if (info.dom)
+		{
+			info.dom.remove();
+			info.dom = info.text = null;
+		}
+	} else if (e.keyCode == 68/*d*/) 
+	{
 		var text = window.getSelection().toString();
 		if(text == info.text){
 			return;
